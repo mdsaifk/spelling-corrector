@@ -6,7 +6,7 @@ RUN apt-get update -y && \
     apt-get install -y libopenblas-dev liblapack-dev && \
     apt-get install -y libx11-dev libgtk-3-dev
     
-#COPY ./requirements.txt /requirements.txt
+COPY ./requirements.txt /requirements.txt
 
 #WORKDIR /
 
@@ -15,9 +15,9 @@ RUN apt-get update -y && \
 COPY . /app
 WORKDIR /app
 
-EXPOSE 8080
+#EXPOSE 8080
 
 RUN pip3 install -r requirements.txt
 #RUN pip install -r requirements.txt
-ENTRYPOINT [ "python" ]
+ENTRYPOINT [ "python3" ]
 CMD [ "app.py" ]
